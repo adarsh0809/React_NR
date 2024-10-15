@@ -10,19 +10,19 @@ const NavBar = () => {
         ></img>
         <div className="font-bold  my-[22px] text-xl text-[#F83002] ">SUGGY</div>
       </div>
-      <ul className="flex justify-between gap-3 my-[22px] font-bold">
+      <ul className="flex justify-between gap-3 my-[22px] font-bold ">
         <li>
-          <button className="text-gray-600 hover:text-gray-900 text-lg ">
+          <button className="text-gray-600 hover:text-gray-900 text-lg hover:underline">
             Home
           </button>
         </li>
         <li>
-          <button className="text-gray-600 hover:text-gray-900 text-lg">
+          <button className="text-gray-600 hover:text-gray-900 text-lg  hover:underline">
             About
           </button>
         </li>
         <li>
-          <button className="text-gray-600 hover:text-gray-900 text-lg">
+          <button className="text-gray-600 hover:text-gray-900 text-lg  hover:underline">
             Cart
           </button>
         </li>
