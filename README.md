@@ -7,7 +7,7 @@ Technologies Used
 - Tailwind CSS: For styling
 - React Router: For routing
 
-- 
+
 Course Focus
 - React basics, hooks, and state management
 - Routing and performance optimization
