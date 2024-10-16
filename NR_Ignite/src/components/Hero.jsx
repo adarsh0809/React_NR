@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 let data = [
   {
@@ -1056,6 +1056,8 @@ const ResturantCard = ({ item }) => {
   );
 };
 
+
+
 const Hero = () => {
   const [restData, setrestData] = useState(data);
   const [clicked, setClicked] = useState(false);
@@ -1070,6 +1072,21 @@ const Hero = () => {
     setClicked(false);
     setrestData(data);
   };
+
+
+  useEffect( ()=>{
+    FetchData();
+  }, [])
+
+  const FetchData = async() => {
+    const deta = await fetch ("https://www.swiggy.com/dapi/restaurants/list/v5?lat=31.395993917938036&lng=75.53563865788118&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const res =  await deta.json();
+    console.log(res);
+    const k = res.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+    setrestData(k);
+
+
+  }
 
   return (
     <>
