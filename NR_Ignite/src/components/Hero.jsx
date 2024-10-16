@@ -1059,7 +1059,7 @@ const ResturantCard = ({ item }) => {
 
 
 const Hero = () => {
-  const [restData, setrestData] = useState(data);
+  const [restData, setrestData] = useState([]);
   const [clicked, setClicked] = useState(false);
 
   const handleButton = () => {
@@ -1109,6 +1109,17 @@ const Hero = () => {
             Filter Now
           </button>
         )}
+      </div>
+      
+      <div className="flex flex-col  items-center justify-center ">
+        <h1 className="font-bold text-[#F83002] text-2xl py-7">
+          Find your Favourite Resturant NOW!!!
+        </h1>
+        <div className="flex">
+        <input className="w-[500px] h-[30px]  border-[3px] rounded-lg" ></input>
+        <button className="rounded-lg bg-[#F83002] px-3 text-white text-xl">Search</button>
+        </div>
+        
       </div>
 
       <div className=" gap-[40px] flex flex-wrap  p-6  items-center justify-center ">
