@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [clicked, setClicked] = useState("Login");
@@ -15,26 +16,23 @@ const NavBar = () => {
         </div>
       </div>
       <ul className="flex justify-between gap-3 my-[22px]  ">
-        <li>
-          <button className="text-gray-600 hover:text-gray-900 text-lg hover:underline">
-            Home
-          </button>
+        <li className="text-gray-600 hover:text-gray-900 text-lg hover:underline">
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <button className="text-gray-600 hover:text-gray-900 text-lg  hover:underline">
-            About
-          </button>
+          <Link to="/about">About</Link>
         </li>
         <li>
-          <button className="text-gray-600 hover:text-gray-900 text-lg  hover:underline">
-            Cart
-          </button>
+          <Link to="/contact">Contact Us</Link>
+        </li>
+        <li>
+          <Link to="/cart">Cart</Link>
         </li>
 
         <button
           onClick={() => {
-            clicked === "Login" ? setClicked("Logout") : setClicked("Login")
-          } }
+            clicked === "Login" ? setClicked("Logout") : setClicked("Login");
+          }}
           className="text-white  rounded bg-[#3e27c3] py-1 px-2 "
         >
           {clicked}

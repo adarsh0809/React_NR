@@ -1,16 +1,44 @@
-import React from 'react'
-import NavBar from './components/NavBar'
-import Hero from './components/Hero'
-import Footer from './components/Footer'
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Cart from "./components/Cart";
+import Main from "./components/Main";
 
+// Router Configuration created using createBrowserRouter
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    children: [
+      {
+        path: "/",
+        element: <Main />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+    ],
+  },
+]);
+
+// Using RouterProvider Routing was esatablished in the application
 const App = () => {
   return (
-    <div >
-      <NavBar/>
-      <Hero/>
-      <Footer/>
+    <div>
+      <RouterProvider router={appRouter} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
