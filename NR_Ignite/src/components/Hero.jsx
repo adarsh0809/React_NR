@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { GRID_URL, CLOU_URL } from "../utility";
+import { Link } from "react-router-dom";
 
 const ResturantCard = ({ item }) => {
   const { cloudinaryImageId, name, avgRating, costForTwo, id } = item.info;
+
   return (
     <>
       <div
@@ -11,10 +14,7 @@ const ResturantCard = ({ item }) => {
       >
         <img
           className="w-full h-40 object-cover object-center rounded-3xl"
-          src={
-            "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-            cloudinaryImageId
-          }
+          src={CLOU_URL + cloudinaryImageId}
         ></img>
         <h1 className="font-bold text-[#F83002]">{name}</h1>
         <div className="flex gap-5 text-violet-900 text-md">
@@ -29,7 +29,6 @@ const ResturantCard = ({ item }) => {
     </>
   );
 };
-
 const Hero = () => {
   const [restData, setrestData] = useState([]);
   const [SData, setSData] = useState([]);
@@ -55,14 +54,14 @@ const Hero = () => {
   }, []);
 
   const FetchData = async () => {
-    const deta = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=31.395993917938036&lng=75.53563865788118&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const deta = await fetch(GRID_URL);
     const res = await deta.json();
-    console.log(res);
-    const k = res.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+    // console.log(res);
+    const k =
+      res.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
     setrestData(k);
     setSData(k);
+    // console.log(SData);
   };
 
   return (
@@ -120,8 +119,9 @@ const Hero = () => {
 
           <div className=" gap-[40px] flex flex-wrap  p-6  items-center justify-center ">
             {SData.map((item) => (
-              <ResturantCard item={item} />
-              
+              <Link to={`/resturant/${item.info.id}`} key={item.info.id}>
+                <ResturantCard item={item} />
+              </Link>
             ))}
           </div>
         </div>

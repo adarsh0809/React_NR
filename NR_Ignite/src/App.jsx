@@ -5,6 +5,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import Main from "./components/Main";
+import ResDetails from "./components/ResDetails";
 
 // Router Configuration created using createBrowserRouter
 const appRouter = createBrowserRouter([
@@ -27,6 +28,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/resturant/:resID",
+        element: <ResDetails />,
       },
     ],
   },
