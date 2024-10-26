@@ -1,5 +1,5 @@
 import React from "react";
-import { IMG_URL } from "../utility";
+import { IMG_URL } from "../utility/url";
 
 const Card = ({ det }) => {
   const { isVeg, name, price, imageId } = det?.card?.info;

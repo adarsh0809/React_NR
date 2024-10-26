@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { GRID_URL, CLOU_URL } from "../utility";
+import { GRID_URL, CLOU_URL } from "../utility/url";
 import { Link } from "react-router-dom";
 
 const ResturantCard = ({ item }) => {

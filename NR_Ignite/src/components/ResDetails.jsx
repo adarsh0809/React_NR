@@ -1,33 +1,14 @@
-import React, { useEffect, useState } from 'react'
 import ResCard from './ResCard'
 import MenuCard from './MenuCard'
-import { RES_URL , RESU_URL } from '../utility'
 import Shimmer from './Shimmer'
 import { useParams } from 'react-router-dom'
+import useRestrauntant from '../utility/useRestrauntant'
 
 
 const ResDetails = () => {
-    const [rData , setrData] = useState([]);
      const {resID} = useParams();
     //  console.log(resID);
-     
-    useEffect (() => {
-        FetchData();
-    }, [])
-
-    const FetchData = async()=>{
-        try {
-            const data = await fetch(RESU_URL+resID );
-            
-            
-            const json = await data.json();
-            setrData(json);
-            
-        } catch (error) {
-            console.log(error);
-            
-        }
-    }
+    const rData = useRestrauntant(resID);  // creating custom hook for fetching data from the api and making the code more redable , resubale , and modular based on singkle modularity priciple i.e., one component shhould only contains single resposibility in our case it sould only display the data FOR fetching it must be done by automatically through custom hook
     if (rData.length === 0){
         return <Shimmer/>
     }
