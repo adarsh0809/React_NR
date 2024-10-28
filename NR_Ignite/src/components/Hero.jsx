@@ -61,7 +61,7 @@ const Hero = () => {
       res.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
     setrestData(k);
     setSData(k);
-    // console.log(SData);
+     console.log(k);
   };
 
   return (

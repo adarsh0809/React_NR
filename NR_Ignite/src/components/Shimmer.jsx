@@ -26,7 +26,7 @@ const Shimmer = () => {
         {p.map((cards, index) => {
           {
             return (
-              <div>
+              <div key ={index}>
                 <div className=" bg-gray-200 border-b shadow-md p-4 w-[350px] h-[300px] flex flex-col  hover:cursor-pointer hover:-translate-x-2 hover:-translate-y-2 transform transition duration-300 ease-in-out">
                   <img className="w-full h-40 object-cover object-center rounded-md bg-gray-300"></img>
 

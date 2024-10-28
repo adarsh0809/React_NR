@@ -2,21 +2,24 @@ import React from "react";
 import { IMG_URL } from "../utility/url";
 
 const Card = ({ det }) => {
-  const { isVeg, name, price, imageId } = det?.card?.info;
-//   console.log(det);
+  const { isVeg, name, price, imageId  , description} = det?.card?.info;
+  // console.log(det?.card?.info);
+  
+
   
 
   return (
-    <div className=" flex justify-between  w-[750px] h-[150px] border-b items-center">
+    <div className=" flex justify-between  p-4 w-[700px] h-[170px] border-b-2 border-gray-300 items-center">
       <div>
-        <p>{isVeg ? "Veg" : "Non Veg"}</p>
-        <p>{name}</p>
+        {isVeg ? <p className="text-green-700 font-bold">Veg</p> : <p className="text-red-700 font-bold">Non Veg</p>}
+        <p className="font-bold">{name}</p>
         <p>₹ {price / 100}</p>
+        <p className="text-xs text-slate-900">{description}</p>
       </div>
 
       <div className="flex flex-col items-center">
         <img
-          className="object-cover w-[120px] rounded-2xl"
+          className="object-cover w-[130px] rounded-2xl"
           src={IMG_URL + imageId}
         ></img>
         <button className="font-bold text-green-500 border w-[100px] rounded-lg z-10 ">
@@ -27,26 +30,13 @@ const Card = ({ det }) => {
   );
 };
 
-const MenuCard = ({ recdet }) => {
+const MenuCard = ({ data }) => {
+  const recdet = data?.card?.card?.itemCards;
   return (
     <div className=" m-4 felx flex-col items-center justify-center">
-      <h1>MENU</h1>
-      <input
-        placeholder="Search for dishes"
-        className=" border  text-center shadow-2xl rounded-3xl w-[750px] h-[35px]"
-      ></input>
-      <div className="flex gap-3 my-3">
-        <button className="rounded-3xl border px-3 text-green-600">
-          Pure Veg
-        </button>
-        <button className="rounded-3xl border px-3">Bestseller</button>
-      </div>
-      <div className="w-[750px] bg-gray-500 h-[1px]"></div>
-      <br />
-      <h1>Recommended</h1>
       <div className="flex flex-col gap-3 border-b ">
-        {recdet.map((det) => (
-          <Card det={det} />
+        {recdet.map((det , index) => (
+          <Card det={det} key = {index} />
         ))}
       </div>
     </div>

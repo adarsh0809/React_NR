@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import userInfo from "../utility/UserContext";
 
 const NavBar = () => {
   const [clicked, setClicked] = useState("Login");
+  const Info = useContext(userInfo)
+  console.log(Info);
+  
 
   return (
     <div className="flex justify-between  border-b px-4  shadow-sm">
@@ -27,6 +31,9 @@ const NavBar = () => {
         </li>
         <li>
           <Link to="/cart">Cart</Link>
+        </li> 
+        <li>
+          <Link to="/cart">{Info.loginInformation2}</Link>
         </li>
 
         <button
