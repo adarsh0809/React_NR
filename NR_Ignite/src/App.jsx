@@ -6,6 +6,8 @@ import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import Main from "./components/Main";
 import ResDetails from "./components/ResDetails";
+import { Provider } from "react-redux";
+import AppStore from "./utility/AppStore";
 
 // Router Configuration created using createBrowserRouter
 const appRouter = createBrowserRouter([
@@ -40,9 +42,11 @@ const appRouter = createBrowserRouter([
 // Using RouterProvider Routing was esatablished in the application
 const App = () => {
   return (
-    <div>
-      <RouterProvider router={appRouter} />
-    </div>
+    <Provider store={AppStore}>
+      <div>
+        <RouterProvider router={appRouter} />
+      </div>
+    </Provider>
   );
 };
 

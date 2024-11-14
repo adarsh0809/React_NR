@@ -15,7 +15,7 @@ const ResDetails = () => {
   }
 
   const { text } = rData?.data?.cards[0]?.card?.card;
-  const Adet = rData?.data?.cards[2]?.card?.card.info;
+  const Adet = rData?.data?.cards[2]?.card?.card?.info;
   const cat = rData?.data?.cards[4]?.groupedCard?.cardGroupMap.REGULAR?.cards;
   const categorie = cat.filter(
     (c) =>

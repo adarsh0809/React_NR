@@ -1,12 +1,28 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import userInfo from "../utility/UserContext";
+import { useSelector } from "react-redux";
+import AppStore from "../utility/AppStore";
 
 const NavBar = () => {
   const [clicked, setClicked] = useState("Login");
-  const Info = useContext(userInfo)
-  console.log(Info);
+  const Info = useContext(userInfo);
+  // console.log(Info);
+
+  // selector -> to subscribe the cartSlice in order to read data form the cart like how many item are present in the cart
+
+  const cart = useSelector((store) => {
+    return store.cart.item
+  });
+  //console.log(cart);
   
+
+ // useSelector will take the value of store.cart.item from the Redux store and store it in the cart variable.
+
+  // in this block , without return it will give undefined , therefor use return keyword when use parenthesis
+  
+  // const cart = useSelector((store) => store.cart.item);
+  // implicity have a return keyword directly use 
 
   return (
     <div className="flex justify-between  border-b px-4  shadow-sm">
@@ -30,8 +46,8 @@ const NavBar = () => {
           <Link to="/contact">Contact Us</Link>
         </li>
         <li>
-          <Link to="/cart">Cart</Link>
-        </li> 
+          <Link to="/cart">Cart <span className="font-bold text-orange-700">({cart.length})</span> </Link>
+        </li>
         <li>
           <Link to="/cart">{Info.loginInformation2}</Link>
         </li>

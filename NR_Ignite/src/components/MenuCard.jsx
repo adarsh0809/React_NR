@@ -1,14 +1,23 @@
 import React from "react";
 import { IMG_URL } from "../utility/url";
+import { useDispatch } from "react-redux";
+import { addition } from "../utility/cartSlice";
 
 const Card = ({ det }) => {
   const { isVeg, name, price, imageId  , description} = det?.card?.info;
   // console.log(det?.card?.info);
   
-
+  const dispatch = useDispatch();
   
+  const HandleAddItems =()=>{
+    // dispatch an action 
+    dispatch(addition(det.card.info));
+
+  }
 
   return (
+
+     
     <div className=" flex justify-between  p-4 w-[700px] h-[170px] border-b-2 border-gray-300 items-center">
       <div>
         {isVeg ? <p className="text-green-700 font-bold">Veg</p> : <p className="text-red-700 font-bold">Non Veg</p>}
@@ -21,8 +30,8 @@ const Card = ({ det }) => {
         <img
           className="object-cover w-[130px] rounded-2xl"
           src={IMG_URL + imageId}
-        ></img>
-        <button className="font-bold text-green-500 border w-[100px] rounded-lg z-10 ">
+        ></img> 
+        <button onClick={HandleAddItems} className="font-bold text-green-500 border w-[100px] rounded-lg z-10 ">
           ADD
         </button>
       </div>

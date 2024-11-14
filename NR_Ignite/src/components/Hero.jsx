@@ -56,12 +56,12 @@ const Hero = () => {
   const FetchData = async () => {
     const deta = await fetch(GRID_URL);
     const res = await deta.json();
-    // console.log(res);
+     // console.log(res);
     const k =
       res.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
     setrestData(k);
     setSData(k);
-     console.log(k);
+    //  console.log(k);
   };
 
   return (
